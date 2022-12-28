@@ -1,4 +1,2 @@
 # Kieran's fork of dwm
-Kieran's build of [Suckless](https://dwm.suckless.org/) dwm.
-
-The Dynamic-Window-Manager for X11.
+Kieran's build of the [Suckless](https://dwm.suckless.org/) Dynamic-Window-Manager for X11.
