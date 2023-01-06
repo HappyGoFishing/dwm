@@ -15,7 +15,7 @@ static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#00773d"; //The main accent colour of dwm and dmenu_run
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -62,7 +62,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
 static const char *dmenu_powercmd[] = { "dmenu-power", NULL};
 static const Key keys[] = {
@@ -85,11 +85,11 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-      //{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-      //{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-      //{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+        { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
+        { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[1]} },
+	//{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,                       XK_space,  setlayout,      {1} },
+	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {1} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
