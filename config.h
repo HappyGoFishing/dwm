@@ -1,8 +1,6 @@
 /* See LICENSE file for copyright and license details. */
 
-
 //Comments starting with "//" are Kieran's comments and aren't part of the vanilla dwm sources.
-
 
 /* appearance */
 static const unsigned int borderpx  = 3;        /* border pixel of windows */
@@ -31,7 +29,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	//{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "Steam",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -62,7 +60,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
 static const char *dmenu_powercmd[] = { "dmenu-power", NULL};
 static const Key keys[] = {
@@ -85,8 +83,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-        { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
-        { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[1]} },
+        { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[0]} },
+        { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[1]} },
 	//{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {1} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {1} },
