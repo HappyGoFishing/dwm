@@ -2,7 +2,7 @@
 # See LICENSE file for copyright and license details.
 
 include config.mk
-
+PREFIX=/home/kieran/.local
 SRC = drw.c dwm.c util.c
 OBJ = ${SRC:.c=.o}
 
