@@ -9,11 +9,11 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "iosevka:size=12" };
 static const char dmenufont[]       = "iosevka:size=12";
-static const char col_gray1[]       = "#222222";
+static const char col_gray1[]       = "#282828";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#c02101"; //The main accent colour of dwm and dmenu_run
+static const char col_cyan[]        = "#b16286"; //The main accent colour of dwm and dmenu_run
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
