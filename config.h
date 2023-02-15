@@ -64,6 +64,7 @@ static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
 static const char *dmenu_powercmd[] = { "dmenu-power", NULL};
 static const char *volumecmd[] = { "st","-e", "pulsemixer", NULL};
+static const char *htopcmd[] = { "st","-e", "htop", NULL};
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
@@ -71,11 +72,11 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_f,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = dmenu_powercmd } },
 	{ MODKEY,                       XK_v,      spawn,          {.v = volumecmd } },
+	{ MODKEY,                       XK_t,      spawn,          {.v = htopcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-        //These are unwanted binds. Stopped compiler warnings by binding them to XK_i and XK_o
-	//These are never intended to be used and one day I will fully remove them from dwm.c et cetera
+    
 	{ MODKEY,                       XK_o,      incnmaster,     {.i = +1 } },
     { MODKEY,                       XK_i,      incnmaster,     {.i = -1 } },
 	
