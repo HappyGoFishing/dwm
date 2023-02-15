@@ -63,7 +63,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
 static const char *dmenu_powercmd[] = { "dmenu-power", NULL};
-static const char *volumecmd[] = { "st"," -e pulsemixer" NULL};
+static const char *volumecmd[] = { "st","-e", "pulsemixer", NULL};
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
