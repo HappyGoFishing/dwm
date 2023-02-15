@@ -13,7 +13,7 @@ static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#cb944e"; //The main accent colour of dwm and dmenu_run
+static const char col_cyan[]        = "#976e3a"; //The main accent colour of dwm and dmenu_run
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -63,29 +63,29 @@ static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont,
 static const char *termcmd[]  = { "st", "-T Simple Terminal", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
 static const char *dmenu_powercmd[] = { "dmenu-power", NULL};
-static const char *screenshotcmd[] = { "flameshot gui", NULL};
+static const char *volumecmd[] = { "st -e pulsemixer", NULL};
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = browsercmd } },
 	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = dmenu_powercmd } },
-
+	{ MODKEY,                       XK_v,      spawn,          {.v = volumecmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
         //These are unwanted binds. Stopped compiler warnings by binding them to XK_i and XK_o
 	//These are never intended to be used and one day I will fully remove them from dwm.c et cetera
 	{ MODKEY,                       XK_o,      incnmaster,     {.i = +1 } },
-        { MODKEY,                       XK_i,      incnmaster,     {.i = -1 } },
+    { MODKEY,                       XK_i,      incnmaster,     {.i = -1 } },
 	
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-        { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[0]} },
-        { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[1]} },
+    { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[0]} },
+    { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[1]} },
 	//{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_space,  setlayout,      {1} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {1} },
