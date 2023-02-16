@@ -7,13 +7,13 @@ static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "iosevka:size=12" };
-static const char dmenufont[]       = "iosevka:size=12";
+static const char *fonts[]          = { "terminus:size=15" };
+static const char dmenufont[]       = "terminus:size=15";
 static const char col_gray1[]       = "#000000";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#976e3a"; //The main accent colour of dwm and dmenu_run
+static const char col_cyan[]        = "#003c77"; //The main accent colour of dwm and dmenu_run
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
@@ -82,7 +82,7 @@ static const Key keys[] = {
 	
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,				XK_Return, zoom,           {0} },
+	{ MODKEY|ShiftMask,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
     { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[0]} },
