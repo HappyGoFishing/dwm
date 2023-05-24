@@ -1,7 +1,5 @@
 /* See LICENSE file for copyright and license details. */
 
-//Comments starting with "//" are Kieran's comments and aren't part of the vanilla dwm sources.
-
 /* appearance */
 static const unsigned int borderpx  = 5;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
@@ -60,26 +58,19 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "alacritty", NULL };
+static const char *termcmd[]  = { "st", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
-static const char *dmenu_powercmd[] = { "dmenu-power", NULL};
-static const char *volumecmd[] = { "alacritty","-e", "pulsemixer", NULL};
-static const char *htopcmd[] = { "alacritty","-e", "htop", NULL};
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = browsercmd } },
-	{ MODKEY|ShiftMask,             XK_q,      spawn,          {.v = dmenu_powercmd } },
-	{ MODKEY,                       XK_v,      spawn,          {.v = volumecmd } },
-	{ MODKEY,                       XK_t,      spawn,          {.v = htopcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-    
 	{ MODKEY,                       XK_o,      incnmaster,     {.i = +1 } },
     { MODKEY,                       XK_i,      incnmaster,     {.i = -1 } },
-	
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY|ShiftMask,                       XK_Return, zoom,           {0} },
