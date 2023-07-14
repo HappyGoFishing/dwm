@@ -1,7 +1,7 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-static const unsigned int borderpx  = 5;        /* border pixel of windows */
+static const unsigned int borderpx  = 6;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
@@ -60,31 +60,37 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *browsercmd[]  = { "firefox", NULL};
+static const char *xkillcmd[] = {"xkill", NULL};
+static const char *explorercmd[] = {"thunar", NULL};
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	//Program spawn keybinds
+	{ MODKEY|ShiftMask,		XK_space,  spawn,	   {.v = xkillcmd} },
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_f,      spawn,          {.v = browsercmd } },
+	{ MODKEY,               	XK_e,      spawn,          {.v = explorercmd } },
+	//Window manager keybinds.
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_o,      incnmaster,     {.i = +1 } },
-    { MODKEY,                       XK_i,      incnmaster,     {.i = -1 } },
+    	{ MODKEY,                       XK_i,      incnmaster,     {.i = -1 } },
 	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY|ShiftMask,                       XK_Return, zoom,           {0} },
+	{ MODKEY|ShiftMask,             XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
 	{ MODKEY,                       XK_q,      killclient,     {0} },
-    { MODKEY,                       XK_y,      setlayout,      {.v = &layouts[0]} },
-    { MODKEY,                       XK_u,      setlayout,      {.v = &layouts[1]} },
-	//{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {1} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {1} },
+    	{ MODKEY,                       XK_y,      setlayout,      {.v = &layouts[0]} },
+    	{ MODKEY,                       XK_u,      setlayout,      {.v = &layouts[1]} },
+	//{ MODKEY,                     XK_u,      setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|ShiftMask,           XK_Delete,   setlayout,      {1} },		//Basically just killed the X server, might have another use, not worth investigating.
+	{ MODKEY,             		XK_space,  togglefloating, {1} },		//Toggles windows between floating and tiling (useful for making windows tile again after resizing them).
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
+	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } }, 	//Cycles mouse focus to monitor
+	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },	//Both behave identical on a two monitor setup.
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	TAGKEYS(                        XK_1,                      0)
